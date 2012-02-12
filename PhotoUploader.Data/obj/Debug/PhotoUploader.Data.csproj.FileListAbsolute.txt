@@ -1,0 +1,8 @@
+C:\Users\Serge\Test-project\PhotoUploader.Data\bin\Debug\PhotoUploader.Data.dll.config
+C:\Users\Serge\Test-project\PhotoUploader.Data\bin\Debug\PhotoUploader.Data.dll
+C:\Users\Serge\Test-project\PhotoUploader.Data\bin\Debug\PhotoUploader.Data.pdb
+C:\Users\Serge\Test-project\PhotoUploader.Data\bin\Debug\EntityFramework.dll
+C:\Users\Serge\Test-project\PhotoUploader.Data\bin\Debug\EntityFramework.xml
+C:\Users\Serge\Test-project\PhotoUploader.Data\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Serge\Test-project\PhotoUploader.Data\obj\Debug\PhotoUploader.Data.dll
+C:\Users\Serge\Test-project\PhotoUploader.Data\obj\Debug\PhotoUploader.Data.pdb
