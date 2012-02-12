@@ -25,9 +25,7 @@ namespace PhotoUploader
             }
             catch (Exception ex)
             {
-                var connectionString = ConfigurationManager.ConnectionStrings["photoBase"].ConnectionString;
-                _resultLabel.Text = "Can't Connect to (" + connectionString + ")!!!!\n";
-                _resultLabel.Text += ex.Message;
+                _resultLabel.Text = ex.Message;
             }
 
 

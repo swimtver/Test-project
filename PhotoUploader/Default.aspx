@@ -8,7 +8,8 @@
         Welcome to ASP.NET!</h2>
     <asp:FileUpload ID="_upload" runat="server" />
     <asp:Button ID="_submit" runat="server" Text="Загрузить" OnClick="SubmitClick" />
-    <asp:Label ID="_resultLabel" runat="server" />
+    <p>
+        <asp:Label ID="_resultLabel" runat="server" /></p>
     <div>
         <asp:ListView ID="_photoesList" runat="server">
             <ItemTemplate>

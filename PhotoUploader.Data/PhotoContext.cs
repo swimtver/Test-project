@@ -8,11 +8,7 @@ namespace PhotoUploader.Data
     {
         public IDbSet<Photo> Photoes { get; set; }
 
-        public PhotoContext()
-            : base("photoBase")
-        {
-            Database.SetInitializer(new DropCreateDatabaseAlways<PhotoContext>());
-        }
+        public PhotoContext() : base("photoBase") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
