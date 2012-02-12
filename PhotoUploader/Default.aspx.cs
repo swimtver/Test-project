@@ -1,38 +1,66 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Configuration;
-using System.Data.Common;
-using System.Data;
+using PhotoUploader.Data;
+using System.IO;
+using System.Web.Helpers;
 
 namespace PhotoUploader
 {
     public partial class Default : System.Web.UI.Page
     {
+        PhotoService service = new PhotoService();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            var connectionStringSettings = ConfigurationManager.ConnectionStrings["photoBase"];
-            var provider = DbProviderFactories.GetFactory(connectionStringSettings.ProviderName);
-            var connection = provider.CreateConnection();
-            connection.ConnectionString = connectionStringSettings.ConnectionString;
             try
             {
-                if (connection.State != ConnectionState.Open)
-                    connection.Open();
-                _resultLabel.Text = "I Connect to (" + connection.ConnectionString + ")!!!!";
-                connection.Close();
+                var count = service.GetPhotoesList().Count();
+                _resultLabel.Text = "I get " + count + " photoes!!!!";
+                if (count > 0)
+                {
+                    _photoesList.DataSource = service.GetPhotoesList();
+                    _photoesList.DataBind();
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                _resultLabel.Text = "Can't Connect to (" + connection.ConnectionString + ")!!!!";
+                var connectionString = ConfigurationManager.ConnectionStrings["photoBase"].ConnectionString;
+                _resultLabel.Text = "Can't Connect to (" + connectionString + ")!!!!\n";
+                _resultLabel.Text += ex.Message;
             }
-            finally
+
+
+        }
+
+        public void SubmitClick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Request.Files.Count; i++)
             {
-                connection.Dispose();
+                var file = Request.Files[i];
+                if (file.ContentLength > 0)
+                {
+                    var fileUpload = new WebImage(file.InputStream);
+                    var fileTitle = Path.GetFileNameWithoutExtension(file.FileName).Trim();
+                    if (String.IsNullOrWhiteSpace(fileTitle))
+                        fileTitle = "Untitled";
+                    var fileExtension = Path.GetExtension(file.FileName).Trim();
+                    var fileBytes = fileUpload.GetBytes();
+
+                    var photo = new PhotoUploader.Data.Photo
+                    {
+                        FileName = fileTitle,
+                        FileExtention = fileExtension,
+                        ContentType = fileUpload.ImageFormat,
+                        FileSize = fileBytes.Length,
+                        Content = fileBytes,
+                        UploadDate = DateTime.Now
+                    };
+                    service.Upload(photo);
+                }
             }
+            _photoesList.DataSource = service.GetPhotoesList();
+            _photoesList.DataBind();
         }
     }
 }

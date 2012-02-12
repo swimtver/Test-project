@@ -13,6 +13,24 @@ namespace PhotoUploader {
     public partial class Default {
         
         /// <summary>
+        /// _upload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload _upload;
+        
+        /// <summary>
+        /// _submit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button _submit;
+        
+        /// <summary>
         /// _resultLabel control.
         /// </summary>
         /// <remarks>
@@ -20,5 +38,14 @@ namespace PhotoUploader {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label _resultLabel;
+        
+        /// <summary>
+        /// _photoesList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView _photoesList;
     }
 }
