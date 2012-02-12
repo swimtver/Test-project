@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Configuration;
 using PhotoUploader.Data;
 using System.IO;
 using System.Web.Helpers;
