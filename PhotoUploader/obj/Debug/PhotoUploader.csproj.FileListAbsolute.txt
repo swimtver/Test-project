@@ -7,5 +7,3 @@ C:\Users\Serge\Test-project\PhotoUploader\obj\Debug\PhotoUploader.pdb
 C:\Users\Serge\Test-project\PhotoUploader\bin\EntityFramework.dll
 C:\Users\Serge\Test-project\PhotoUploader\bin\EntityFramework.xml
 C:\Users\Serge\Test-project\PhotoUploader\obj\Debug\PhotoUploader.csprojResolveAssemblyReference.cache
-C:\Users\Serge\Test-project\PhotoUploader\bin\System.Web.Helpers.dll
-C:\Users\Serge\Test-project\PhotoUploader\bin\System.Web.Helpers.xml
