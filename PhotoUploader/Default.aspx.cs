@@ -2,7 +2,6 @@
 using System.Linq;
 using PhotoUploader.Data;
 using System.IO;
-using System.Web.Helpers;
 
 namespace PhotoUploader
 {
@@ -14,20 +13,12 @@ namespace PhotoUploader
         {
             try
             {
-                var count = service.GetPhotoesList().Count();
-                _resultLabel.Text = "I get " + count + " photoes!!!!";
-                if (count > 0)
-                {
-                    _photoesList.DataSource = service.GetPhotoesList();
-                    _photoesList.DataBind();
-                }
+                _resultLabel.Text = "Всего: " + service.Count();                
             }
             catch (Exception ex)
             {
                 _resultLabel.Text = ex.Message;
             }
-
-
         }
 
         public void SubmitClick(object sender, EventArgs e)
@@ -37,27 +28,25 @@ namespace PhotoUploader
                 var file = Request.Files[i];
                 if (file.ContentLength > 0)
                 {
-                    var fileUpload = new WebImage(file.InputStream);
-                    var fileTitle = Path.GetFileNameWithoutExtension(file.FileName).Trim();
-                    if (String.IsNullOrWhiteSpace(fileTitle))
-                        fileTitle = "Untitled";
-                    var fileExtension = Path.GetExtension(file.FileName).Trim();
-                    var fileBytes = fileUpload.GetBytes();
+                    var fileName = Path.GetFileNameWithoutExtension(file.FileName).Trim();
+                    if (String.IsNullOrWhiteSpace(fileName)) fileName = "noname";
 
-                    var photo = new PhotoUploader.Data.Photo
+                    var fileBytes = new byte[file.ContentLength];
+                    if (file.InputStream != null) file.InputStream.Read(fileBytes, 0, file.ContentLength);
+
+                    var photo = new Photo
                     {
-                        FileName = fileTitle,
-                        FileExtention = fileExtension,
-                        ContentType = fileUpload.ImageFormat,
-                        FileSize = fileBytes.Length,
+                        FileName = fileName,
+                        FileExtention = Path.GetExtension(file.FileName).Trim(),
+                        ContentType = file.ContentType,
+                        FileSize = file.ContentLength,
                         Content = fileBytes,
                         UploadDate = DateTime.Now
                     };
                     service.Upload(photo);
                 }
-            }
-            _photoesList.DataSource = service.GetPhotoesList();
-            _photoesList.DataBind();
+            }            
+            _resultLabel.Text = "Всего: " + service.Count();
         }
     }
 }

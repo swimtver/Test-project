@@ -51,9 +51,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>bin\System.Web.Helpers.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -66,15 +63,28 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages\EntityFramework.4.3.0\lib\net40\EntityFramework.dll" />
+    <Content Include="packages\EntityFramework.4.3.0\lib\net40\EntityFramework.xml" />
+    <Content Include="packages\EntityFramework.4.3.0\tools\EntityFramework.PowerShell.dll" />
+    <Content Include="packages\EntityFramework.4.3.0\tools\migrate.exe" />
+    <Content Include="packages\jQuery.1.7.1\Content\Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="packages\jQuery.1.7.1\Content\Scripts\jquery-1.7.1.js" />
+    <Content Include="packages\jQuery.1.7.1\Content\Scripts\jquery-1.7.1.min.js" />
+    <Content Include="packages\jQuery.1.7.1\Tools\jquery-1.7.1-vsdoc-para.js" />
+    <Content Include="packages\YepNope.js.1.0.1\content\Scripts\yepnope.1.0.1-min.js" />
+    <Content Include="packages\YepNope.js.1.0.1\content\Scripts\yepnope.js" />
     <Content Include="Picture.aspx" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\waypoints.js" />
+    <Content Include="Scripts\waypoints.min.js" />
     <Content Include="Scripts\yepnope.1.0.1-min.js" />
     <Content Include="Scripts\yepnope.js" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Thumbnail.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -94,21 +104,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Picture.aspx.cs">
-      <DependentUpon>Picture.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Picture.aspx.designer.cs">
-      <DependentUpon>Picture.aspx</DependentUpon>
+    <Compile Include="PhotoList.ashx.cs">
+      <DependentUpon>PhotoList.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhotoUploader.Data\PhotoUploader.Data.csproj">
@@ -117,13 +116,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Site.Master" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <None Include="App_Data\Task.pdf" />
+    <None Include="packages\EntityFramework.4.3.0\Content\App.config.transform" />
+    <None Include="packages\EntityFramework.4.3.0\Content\Web.config.transform" />
+    <None Include="packages\EntityFramework.4.3.0\EntityFramework.4.3.0.nupkg" />
+    <None Include="packages\EntityFramework.4.3.0\tools\EntityFramework.psd1" />
+    <None Include="packages\EntityFramework.4.3.0\tools\EntityFramework.psm1" />
+    <None Include="packages\EntityFramework.4.3.0\tools\init.ps1" />
+    <None Include="packages\jQuery.1.7.1\jQuery.1.7.1.nupkg" />
+    <None Include="packages\jQuery.1.7.1\Tools\install.ps1" />
+    <None Include="packages\jQuery.1.7.1\Tools\uninstall.ps1" />
+    <Content Include="packages\repositories.config" />
+    <None Include="packages\YepNope.js.1.0.1\YepNope.js.1.0.1.nupkg" />
+    <Content Include="PhotoList.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

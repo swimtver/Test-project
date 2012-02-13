@@ -12,11 +12,12 @@
         if (photo != null)
         {
             OutputCache(Response.Cache, 60);
+
             if (!photo.ContentType.StartsWith("image/", StringComparison.OrdinalIgnoreCase))
                 photo.ContentType = string.Concat("image/", photo.ContentType);
 
             Response.ContentType = photo.ContentType;
-            Response.BinaryWrite(photo.Content);
+            photo.WriteThumbnail(Response.OutputStream);
         }
         else
             Response.End();
@@ -34,4 +35,6 @@
         cache.SetLastModified(timestamp);
         cache.SetSlidingExpiration(sliding);
     }
+
+    
 </script>

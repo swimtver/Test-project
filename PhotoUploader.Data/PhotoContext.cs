@@ -6,7 +6,7 @@ namespace PhotoUploader.Data
 {
     public class PhotoContext : DbContext
     {
-        public IDbSet<Photo> Photoes { get; set; }
+        public IDbSet<Photo> Photos { get; set; }
 
         public PhotoContext() : base("photoBase") { }
 
