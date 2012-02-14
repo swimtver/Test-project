@@ -80,6 +80,8 @@
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\waypoints.js" />
     <Content Include="Scripts\waypoints.min.js" />
+    <Content Include="Scripts\yepnope.1.0.1-min.js" />
+    <Content Include="Scripts\yepnope.js" />
     <Content Include="Styles\Images\loading.gif" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
