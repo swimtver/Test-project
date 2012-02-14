@@ -27,22 +27,27 @@ a:active
     color: #034af3;
 }
 
+img
+{
+    border: none;
+}
+
 p
 {
     margin-bottom: 10px;
     line-height: 1.6em;
 }
 
-ul
+#photolist
 {
     list-style: none;
     padding-left: 11px;
-    overflow-x: none;
+    overflow-x: hidden;
     overflow-y: scroll;
     height: 640px;
 }
 
-li
+#photolist>li
 {
     float: left;
 }
@@ -52,15 +57,59 @@ li
     margin: 7px 13px;
     width: 120px;
     height: 120px;
-    border: 1px solid #ddd;
-    
+    overflow-x:hidden;
 }
-
-    .picture:hover
+.picture img{
+	border: 1px solid #ddd;	
+}
+    .picture img:hover
     {
-        border: 1px solid #ccc;        
+        border: 1px solid #ccc;
     }
 
+.loading
+{
+    margin:50px 0 0 50px;
+}
+
+.qq-uploader { position:relative; width: 100%;}
+
+.qq-upload-button {
+	display: block; /* or inline-block */;
+	width: 135px;
+	padding: 11px 0;
+	text-align: center;
+	font-size: 16px;
+	background-color: #1667B8;
+	border-bottom: 1px solid #ddd;
+	color: #fff;
+}
+.qq-upload-button-hover {background-color:#4497ec;}
+.qq-upload-button-focus {outline:1px dotted black;}
+
+.qq-upload-drop-area {
+    position:absolute;
+    top:0; left:0; width:300px; height:100%; min-height: 60px;  z-index:2;
+    background-color: #1667B8; text-align:center; border: 2px #FFFFFF dashed;
+}
+.qq-upload-drop-area span {
+    display:block; position:absolute; top: 50%; width:100%; margin-top:-8px; font-size:16px;color:#fff;
+}
+.qq-upload-drop-area-active {
+	background-color:#4497ec;
+}
+
+.qq-upload-list {display:none;}
+.qq-upload-file, .qq-upload-spinner, .qq-upload-size, .qq-upload-cancel, .qq-upload-failed-text {
+    margin-right: 7px;
+}
+
+.qq-upload-file {}
+.qq-upload-spinner {display:inline-block; background: url("loading.gif"); width:15px; height:15px; vertical-align:text-bottom;}
+.qq-upload-size,.qq-upload-cancel {font-size:11px;}
+
+.qq-upload-failed-text {display:none;}
+.qq-upload-fail .qq-upload-failed-text {display:inline;}
 
 /* HEADINGS   
 ----------------------------------------------------------*/
@@ -118,7 +167,7 @@ first child of the left and right table columns */
 {
     width: 960px;
     background-color: #fff;
-    margin: 20px auto 0px auto;
+    margin: 0 auto;
     border: 1px solid #496077;
 }
 
@@ -279,30 +328,6 @@ div.accountInfo
     text-align: left;
     width: auto;
 }
-
-.loginDisplay
-{
-    font-size: 1.1em;
-    display: block;
-    text-align: right;
-    padding: 10px;
-    color: White;
-}
-
-    .loginDisplay a:link
-    {
-        color: white;
-    }
-
-    .loginDisplay a:visited
-    {
-        color: white;
-    }
-
-    .loginDisplay a:hover
-    {
-        color: white;
-    }
 
 .failureNotification
 {

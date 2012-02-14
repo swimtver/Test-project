@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Original.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="PhotoContext.cs" />
     <Compile Include="PhotoService.cs" />

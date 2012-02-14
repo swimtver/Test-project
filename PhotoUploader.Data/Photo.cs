@@ -18,13 +18,13 @@ namespace PhotoUploader.Data
 
         public int FileSize { get; set; }
 
-        public byte[] Content { get; set; }
+        public virtual Original Original { get; set; }
 
         public DateTime UploadDate { get; set; }
-                
+
         public void WriteThumbnail(Stream stream)
         {
-            using (var image = Resize(Content, 120, 120))
+            using (var image = Resize(Original.Content, 120, 120))
                 image.Save(stream, ImageFormat.Jpeg);
         }
 
@@ -57,7 +57,5 @@ namespace PhotoUploader.Data
             else
                 return image;
         }
-
-
     }
 }

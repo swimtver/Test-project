@@ -74,13 +74,13 @@
     <Content Include="packages\YepNope.js.1.0.1\content\Scripts\yepnope.1.0.1-min.js" />
     <Content Include="packages\YepNope.js.1.0.1\content\Scripts\yepnope.js" />
     <Content Include="Picture.aspx" />
+    <Content Include="Scripts\fileuploader.js" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\waypoints.js" />
     <Content Include="Scripts\waypoints.min.js" />
-    <Content Include="Scripts\yepnope.1.0.1-min.js" />
-    <Content Include="Scripts\yepnope.js" />
+    <Content Include="Styles\Images\loading.gif" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -94,13 +94,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -108,6 +101,9 @@
       <DependentUpon>PhotoList.ashx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Upload.ashx.cs">
+      <DependentUpon>Upload.ashx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhotoUploader.Data\PhotoUploader.Data.csproj">
@@ -133,6 +129,7 @@
     <Content Include="packages\repositories.config" />
     <None Include="packages\YepNope.js.1.0.1\YepNope.js.1.0.1.nupkg" />
     <Content Include="PhotoList.ashx" />
+    <Content Include="Upload.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

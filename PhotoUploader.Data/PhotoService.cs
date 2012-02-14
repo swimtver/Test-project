@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 
 namespace PhotoUploader.Data
 {
@@ -25,20 +26,16 @@ namespace PhotoUploader.Data
         {
             return context.Photos.Find(id);
         }
+                
+        public Photo GetByIdIncludeOriginal(int id)
+        {
+            return context.Photos.Include(p => p.Original).FirstOrDefault(p => p.Id == id);
+        }
 
         public IEnumerable<Photo> GetPhotoesList()
         {
             return context.Photos.OrderByDescending(p => p.Id).ToList(); // Последние добавленные сначала.
-        }
-
-        public IEnumerable<Photo> GetFakePhotoesList()
-        {
-            var item = GetById(1);
-            for (int i = 0; i < 12; i++)
-            {
-                yield return item;
-            }
-        }
+        }        
 
         public IEnumerable<Photo> GetPhotoesList(int from, int count)
         {
@@ -47,7 +44,9 @@ namespace PhotoUploader.Data
 
         public int Count()
         {
-           return context.Photos.Count();
-        }        
+            return context.Photos.Count();
+        }
+
+
     }
 }

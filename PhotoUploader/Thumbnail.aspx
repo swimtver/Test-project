@@ -8,19 +8,18 @@
             int.TryParse(Request.Params["id"], out id);
 
         var service = new PhotoUploader.Data.PhotoService();
-        var photo = service.GetById(id);
+        var photo = service.GetByIdIncludeOriginal(id);
         if (photo != null)
         {
             OutputCache(Response.Cache, 60);
-
-            if (!photo.ContentType.StartsWith("image/", StringComparison.OrdinalIgnoreCase))
-                photo.ContentType = string.Concat("image/", photo.ContentType);
 
             Response.ContentType = photo.ContentType;
             photo.WriteThumbnail(Response.OutputStream);
         }
         else
+        {
             Response.End();
+        }
     }
 
     private void OutputCache(HttpCachePolicy cache, int numberOfSeconds)
