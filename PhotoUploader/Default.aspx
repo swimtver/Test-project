@@ -55,24 +55,28 @@
     <script src="Scripts/fileuploader.js" type="text/javascript"></script>
     <script>
         $(function () {
-            GetPhotos(-1);
+            GetPhotos(0);
             createUploader();
         });
         function GetPhotos(id) {
-            $.get("/PhotoList.ashx", { Id: id },
-            function (data) {
-                $('#photolist').append(data);
-                $(".waypoint").waypoint(function (event, direction) {
-                    var id = $('.waypoint').attr('customId');
-                    $('.waypoint').removeClass('waypoint');
-                    GetPhotos(id);
-                },
-                {
-                    triggerOnce: true,
-                    context: $("#photolist"),
-                    offset: '100%'
-                });
-            });
+            $.ajax({
+                url: "/PhotoList.ashx",
+                data: { Id: id },
+                cache: false,
+                success: function (data) {
+                    $('#photolist').append(data);
+                    $(".waypoint").waypoint(function (event, direction) {
+                        var id = $('.waypoint').attr('customId');
+                        $('.waypoint').removeClass('waypoint');
+                        GetPhotos(id);
+                    },
+                    {
+                        triggerOnce: true,
+                        context: $("#photolist"),
+                        offset: '80%'
+                    })
+                }
+            });            
         }
         function SetWaypoints() {
             $(".waypoint").waypoint(function (event, direction) {

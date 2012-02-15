@@ -71,8 +71,6 @@
     <Content Include="packages\jQuery.1.7.1\Content\Scripts\jquery-1.7.1.js" />
     <Content Include="packages\jQuery.1.7.1\Content\Scripts\jquery-1.7.1.min.js" />
     <Content Include="packages\jQuery.1.7.1\Tools\jquery-1.7.1-vsdoc-para.js" />
-    <Content Include="packages\YepNope.js.1.0.1\content\Scripts\yepnope.1.0.1-min.js" />
-    <Content Include="packages\YepNope.js.1.0.1\content\Scripts\yepnope.js" />
     <Content Include="Picture.aspx" />
     <Content Include="Scripts\fileuploader.js" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
@@ -80,8 +78,6 @@
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\waypoints.js" />
     <Content Include="Scripts\waypoints.min.js" />
-    <Content Include="Scripts\yepnope.1.0.1-min.js" />
-    <Content Include="Scripts\yepnope.js" />
     <Content Include="Styles\Images\loading.gif" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -129,7 +125,6 @@
     <None Include="packages\jQuery.1.7.1\Tools\install.ps1" />
     <None Include="packages\jQuery.1.7.1\Tools\uninstall.ps1" />
     <Content Include="packages\repositories.config" />
-    <None Include="packages\YepNope.js.1.0.1\YepNope.js.1.0.1.nupkg" />
     <Content Include="PhotoList.ashx" />
     <Content Include="Upload.ashx" />
   </ItemGroup>

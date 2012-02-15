@@ -18,12 +18,12 @@ namespace PhotoUploader
                 context.Response.End();
                 return;
             }
-            var count = 12;
-            var id = -1;
+            var count = 6;
+            int id;
             int.TryParse(context.Request.QueryString["Id"], out id);
-            if (id < 0) //Если вызывается первый раз (при загрузке формы)
+            if (id == 0) //Если вызывается первый раз (при загрузке формы)
             {
-                id = int.MaxValue;                
+                id = int.MaxValue;
             }
 
             var service = new PhotoService();
